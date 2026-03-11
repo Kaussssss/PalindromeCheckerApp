@@ -1,36 +1,38 @@
 # Palindrome Checker App
 
-## Use Case 9 – Recursive Palindrome Checker
+## Use Case 10 – Case-Insensitive & Space-Ignored Palindrome
 
 ### Objective
-Implement palindrome validation using **recursion**, where the algorithm repeatedly compares characters from the beginning and end of the string.
+Enhance the palindrome checker to ignore **letter case** and **spaces** during validation.
+
+This ensures that phrases like:
+"A man a plan a canal Panama"
+
+are correctly identified as palindromes.
 
 ---
 
-## Changes from UC8
+## Changes from UC9
 
-Previous approach (UC8):
-- Used **Singly Linked List**
-- Applied fast-slow pointer technique
-- Reversed the second half of the list
+Previous approach (UC9):
+- Used recursion
+- Compared characters directly
 
-New approach (UC9):
-- Uses **Recursion**
-- Compares characters at the **start and end indexes**
-- Recursively moves inward
-- Stops when the base condition is reached
-
-This approach demonstrates how recursion can break down the palindrome problem into smaller subproblems.
+New approach (UC10):
+- Introduces **string preprocessing**
+- Converts all characters to **lowercase**
+- Removes **spaces using regular expressions**
+- Performs palindrome validation on the cleaned string
 
 ---
 
 ## Key Concepts Used
 
-### Recursion
+### String Preprocessing
 
-Recursion is a technique where a method calls itself to solve a smaller version of the same problem.
+The string is normalized before comparison.
 
-Example method:
+Example:
 
 ```java
-isPalindrome(str, start + 1, end - 1);
+String normalized = input.toLowerCase().replaceAll("\\s+", "");
