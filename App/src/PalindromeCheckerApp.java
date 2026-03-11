@@ -1,44 +1,20 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-import java.util.Scanner;
-void main() {
+public class PalindromeCheckerApp {
 
-            Scanner sc = new Scanner(System.in);
+    // Main method - entry point of the program
+    public static void main(String[] args) {
 
-            System.out.println("=== UC6 : Queue + Stack Based Palindrome Check ===");
-            System.out.print("Enter a String: ");
+        // Display welcome message
+        System.out.println("===================================");
+        System.out.println("     Welcome to Palindrome Checker ");
+        System.out.println("===================================");
 
-            String input = sc.nextLine();
+        // Display application details
+        System.out.println("Application Name : Palindrome Checker App");
+        System.out.println("Version          : 1.0");
 
-            input = input.toLowerCase();
-
-            Queue<Character> queue = new LinkedList<>();
-            Stack<Character> stack = new Stack<>();
-
-            for (int i = 0; i < input.length(); i++) {
-                char ch = input.charAt(i);
-                queue.add(ch);
-                stack.push(ch);
-            }
-
-            boolean isPalindrome = true;
-            while (!queue.isEmpty()) {
-                char fromQueue = queue.remove();
-                char fromStack = stack.pop();
-
-                if (fromQueue != fromStack) {
-                    isPalindrome = false;
-                    break;
-                }
-            }
-
-            if (isPalindrome) {
-                System.out.println("Result: It is a Palindrome.");
-            } else {
-                System.out.println("Result: It is NOT a Palindrome.");
-            }
-
-            sc.close();
-        }
-
+        // Message before moving to next use case
+        System.out.println("-----------------------------------");
+        System.out.println("Application started successfully.");
+        System.out.println("Ready for palindrome checking...");
+    }
+}
