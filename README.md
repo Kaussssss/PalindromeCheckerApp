@@ -1,21 +1,21 @@
 # Palindrome Checker App
 
-## Use Case 2 – Print a Hardcoded Palindrome Result
+## Use Case 3 – Palindrome Check Using String Reverse
 
 ### Objective
-Enhance the application to check whether a predefined string is a palindrome and display the result on the console.
+Implement palindrome detection by reversing a string using a loop and comparing it with the original string.
 
-### Changes from UC1
-- Added a hardcoded string (`"madam"`) to the program.
-- Implemented logic to reverse the string.
-- Added a conditional statement to compare the original string and the reversed string.
-- Displayed whether the string is a palindrome.
+### Changes from UC2
+- Added logic to reverse the string using a `for` loop.
+- Introduced string concatenation to construct the reversed string.
+- Used the `equals()` method to compare the original and reversed strings.
+- Displayed both strings and the result.
 
-### Key Concepts Used
+### Key Java Concepts Used
 
-#### 1. Class
-The `PalindromeCheckerApp` class acts as the container for the entire application.
+#### 1. Loop (for loop)
+Used to iterate through the string characters in reverse order.
 
-#### 2. Main Method
+Example:
 ```java
-public static void main(String[] args)
+for (int i = original.length() - 1; i >= 0; i--)
