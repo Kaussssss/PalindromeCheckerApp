@@ -1,36 +1,32 @@
 # Palindrome Checker App
 
-## Use Case 4 – Character Array Based Palindrome Check
+## Use Case 5 – Stack Based Palindrome Checker
 
 ### Objective
-Implement palindrome validation using a character array and the two-pointer technique.
-
-Instead of reversing the string like in UC3, this version converts the string into a character array and compares characters from both ends moving toward the center.
+Implement palindrome validation using a **Stack data structure**.  
+The stack automatically reverses the order of elements due to its **Last In First Out (LIFO)** behavior.
 
 ---
 
-## Changes from UC3
+## Changes from UC4
 
-Previous approach:
-- Reversed the string using a loop
-- Created a new string using concatenation
-- Compared original and reversed strings
+Previous approach (UC4):
+- Used a character array
+- Used two pointers to compare characters
 
-New approach (UC4):
-- Convert the string into a `char[]`
-- Use two pointers (`start` and `end`)
-- Compare characters directly
-- Avoid creating extra string objects
+New approach (UC5):
+- Introduces **Stack data structure**
+- Characters are **pushed into the stack**
+- Characters are **popped to generate the reversed string**
+- Original and reversed strings are compared
 
-This improves **memory efficiency and comparison speed**.
+This demonstrates how stacks can naturally reverse sequences.
 
 ---
 
 ## Key Concepts Used
 
-### Character Array (char[])
-A primitive array used to store characters individually.
+### Stack
+A **linear data structure** that follows the **LIFO principle**.
 
 Example:
-```java
-char[] characters = word.toCharArray();
