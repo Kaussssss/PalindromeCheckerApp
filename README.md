@@ -1,21 +1,36 @@
 # Palindrome Checker App
 
-## Use Case 3 – Palindrome Check Using String Reverse
+## Use Case 4 – Character Array Based Palindrome Check
 
 ### Objective
-Implement palindrome detection by reversing a string using a loop and comparing it with the original string.
+Implement palindrome validation using a character array and the two-pointer technique.
 
-### Changes from UC2
-- Added logic to reverse the string using a `for` loop.
-- Introduced string concatenation to construct the reversed string.
-- Used the `equals()` method to compare the original and reversed strings.
-- Displayed both strings and the result.
+Instead of reversing the string like in UC3, this version converts the string into a character array and compares characters from both ends moving toward the center.
 
-### Key Java Concepts Used
+---
 
-#### 1. Loop (for loop)
-Used to iterate through the string characters in reverse order.
+## Changes from UC3
+
+Previous approach:
+- Reversed the string using a loop
+- Created a new string using concatenation
+- Compared original and reversed strings
+
+New approach (UC4):
+- Convert the string into a `char[]`
+- Use two pointers (`start` and `end`)
+- Compare characters directly
+- Avoid creating extra string objects
+
+This improves **memory efficiency and comparison speed**.
+
+---
+
+## Key Concepts Used
+
+### Character Array (char[])
+A primitive array used to store characters individually.
 
 Example:
 ```java
-for (int i = original.length() - 1; i >= 0; i--)
+char[] characters = word.toCharArray();
