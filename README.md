@@ -1,32 +1,36 @@
 # Palindrome Checker App
 
-## Use Case 8 – Linked List Based Palindrome Checker
+## Use Case 9 – Recursive Palindrome Checker
 
 ### Objective
-Implement palindrome validation using a **Singly Linked List** and efficient pointer techniques.
-
-The algorithm converts the input string into a linked list and checks whether it forms a palindrome by reversing the second half and comparing both halves.
+Implement palindrome validation using **recursion**, where the algorithm repeatedly compares characters from the beginning and end of the string.
 
 ---
 
-## Changes from UC7
+## Changes from UC8
 
-Previous approach (UC7):
-- Used **Deque**
-- Compared front and rear elements directly
+Previous approach (UC8):
+- Used **Singly Linked List**
+- Applied fast-slow pointer technique
+- Reversed the second half of the list
 
-New approach (UC8):
-- Converts the string into a **Singly Linked List**
-- Uses **fast and slow pointer technique** to find the middle
-- Reverses the **second half of the list in-place**
-- Compares both halves of the list
+New approach (UC9):
+- Uses **Recursion**
+- Compares characters at the **start and end indexes**
+- Recursively moves inward
+- Stops when the base condition is reached
 
-This demonstrates how palindrome validation can be performed efficiently using linked list operations.
+This approach demonstrates how recursion can break down the palindrome problem into smaller subproblems.
 
 ---
 
 ## Key Concepts Used
 
-### Singly Linked List
+### Recursion
 
-A linked list consists of nodes where each node contains:
+Recursion is a technique where a method calls itself to solve a smaller version of the same problem.
+
+Example method:
+
+```java
+isPalindrome(str, start + 1, end - 1);
