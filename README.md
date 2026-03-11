@@ -1,53 +1,22 @@
-# PalindromeCheckerApp
-A Step class Repo for learning and enhancing skills in java
+# Palindrome Checker App
 
+## Use Case 1 – Application Entry & Welcome Message
 
-✅ PalindromeCheckerApp
+### Objective
+Implement the startup behavior of the Palindrome Checker application.  
+This use case focuses on initializing the application and displaying basic application information.
 
-📌 Objective
+### Features Implemented
+- Application entry point using the `main()` method.
+- Display of application name.
+- Display of application version.
+- Welcome message shown when the application starts.
 
-The objective of the Palindrome Checker App is to design and implement a console-based Java application that checks whether a given string is a palindrome using different data structure approaches.
+### Key Java Concepts Used
 
-This project helps to understand:
+#### 1. Class
+The `PalindromeCheckerApp` class acts as the main container for the program logic.
 
-Stack (LIFO)
-
-Queue (FIFO)
-
-Logical comparison of characters
-
-Basic Git workflow
-
-✅ Use Case 6 – Queue + Stack Based Palindrome Check
-🎯 Goal
-
-To demonstrate the difference between:
-
-Queue (FIFO – First In First Out)
-
-Stack (LIFO – Last In First Out)
-
-And use them together to validate whether a string is a palindrome.
-
-🔄 Flow of Execution
-
-User enters a string.
-
-Each character is:
-
-Enqueued into a Queue.
-
-Pushed into a Stack.
-
-Characters are removed:
-
-From Queue using Dequeue (FIFO).
-
-From Stack using Pop (LIFO).
-
-Compare both characters.
-
-If all characters match → It is a Palindrome.
-
-If mismatch occurs → Not a Palindrome.
-
+#### 2. Main Method
+```java
+public static void main(String[] args)
