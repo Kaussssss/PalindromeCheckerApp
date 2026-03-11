@@ -1,100 +1,88 @@
 # Palindrome Checker App
 
-## Use Case 12 – Strategy Pattern for Palindrome Algorithms
+## Use Case 13 – Performance Comparison
 
 ### Objective
 
-Implement the **Strategy Design Pattern** to allow the palindrome algorithm to be selected dynamically at runtime.
+Compare the performance of different palindrome checking algorithms by measuring their execution time.
 
-This design enables the application to switch between different palindrome checking algorithms without modifying the core application logic.
-
----
-
-## Changes from UC11
-
-Previous version (UC11):
-
-- Introduced object-oriented design
-- Palindrome logic encapsulated in a service class
-
-New version (UC12):
-
-- Introduced **Strategy Pattern**
-- Multiple palindrome algorithms implemented as strategies
-- Algorithm selection happens at runtime
+This helps evaluate which algorithm performs more efficiently.
 
 ---
 
-## Architecture
+## Changes from UC12
+
+Previous version (UC12):
+
+- Introduced Strategy Pattern
+- Allowed selecting palindrome algorithms dynamically
+
+New version (UC13):
+
+- Runs multiple strategies sequentially
+- Measures execution time using `System.nanoTime()`
+- Displays performance comparison results
+
+---
+
+## Algorithms Compared
+
+1. **Stack Strategy**
+
+Uses a stack to reverse characters and compare with the original string.
+
+Data Structure:
 
 
-PalindromeStrategy (Interface)
-|
-|---- StackStrategy
-|
-|---- DequeStrategy
-|
-PalindromeChecker (Context)
-|
-PalindromeCheckerApp (Main Program)
+Stack (LIFO)
 
 
 ---
 
-## Key Concepts Used
+2. **Deque Strategy**
 
-### Interface
+Uses a double-ended queue to compare front and rear characters directly.
 
-Defines the contract for all palindrome strategies.
+Data Structure:
+
+
+Deque
+
+
+---
+
+## Performance Measurement
+
+Execution time is captured using:
 
 ```java
-interface PalindromeStrategy {
-    boolean checkPalindrome(String word);
-}
+long start = System.nanoTime();
 
-Any class implementing this interface must provide its own palindrome algorithm.
+and
 
-Polymorphism
+long end = System.nanoTime();
 
-Different strategies implement the same method:
+Execution time:
 
-StackStrategy.checkPalindrome()
-DequeStrategy.checkPalindrome()
+end - start
 
-The program can use any strategy interchangeably.
-
-Strategy Pattern
-
-The Strategy Pattern allows selecting an algorithm at runtime.
-
-Example:
-
-PalindromeStrategy strategy = new StackStrategy();
-
-or
-
-PalindromeStrategy strategy = new DequeStrategy();
-
-The PalindromeChecker class executes the chosen algorithm.
-
-Data Structures Used
-
-Different strategies may use different data structures.
-
-Example:
-
-StackStrategy → Stack
-DequeStrategy → Deque
-
-This makes the design flexible and extendable.
+This returns the time in nanoseconds (ns).
 
 Example Output
 ======================================
         PALINDROME CHECKER APP
 ======================================
-Result: madam is a Palindrome.
+
+Word: madam
+
+Stack Strategy Result : true
+Stack Execution Time  : 45000 ns
+
+Deque Strategy Result : true
+Deque Execution Time  : 32000 ns
+
 --------------------------------------
-Program completed.
+Performance comparison completed.
 Compilation
 javac PalindromeCheckerApp.java
 Execution
