@@ -1,3 +1,31 @@
+import java.util.Stack;
+
+// Service class that handles palindrome logic
+class PalindromeChecker {
+
+    // Method to check palindrome using a stack
+    public boolean checkPalindrome(String word) {
+
+        Stack<Character> stack = new Stack<>();
+
+        // Push characters into stack
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
+        }
+
+        // Build reversed string
+        String reversed = "";
+
+        while (!stack.isEmpty()) {
+            reversed = reversed + stack.pop();
+        }
+
+        // Compare original and reversed
+        return word.equals(reversed);
+    }
+}
+
+// Main application class
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
@@ -6,37 +34,18 @@ public class PalindromeCheckerApp {
         System.out.println("        PALINDROME CHECKER APP        ");
         System.out.println("======================================");
 
-        // Hardcoded string with spaces and mixed case
-        String input = "A man a plan a canal Panama";
+        String word = "madam";
 
-        // Step 1: Normalize string
-        String normalized = input.toLowerCase().replaceAll("\\s+", "");
+        // Create service object
+        PalindromeChecker checker = new PalindromeChecker();
 
-        // Step 2: Two pointer comparison
-        int start = 0;
-        int end = normalized.length() - 1;
+        // Call service method
+        boolean result = checker.checkPalindrome(word);
 
-        boolean isPalindrome = true;
-
-        while (start < end) {
-
-            if (normalized.charAt(start) != normalized.charAt(end)) {
-                isPalindrome = false;
-                break;
-            }
-
-            start++;
-            end--;
-        }
-
-        // Display results
-        System.out.println("Original String  : " + input);
-        System.out.println("Normalized String: " + normalized);
-
-        if (isPalindrome) {
-            System.out.println("Result: The string is a Palindrome.");
+        if (result) {
+            System.out.println("Result: " + word + " is a Palindrome.");
         } else {
-            System.out.println("Result: The string is NOT a Palindrome.");
+            System.out.println("Result: " + word + " is NOT a Palindrome.");
         }
 
         System.out.println("--------------------------------------");
