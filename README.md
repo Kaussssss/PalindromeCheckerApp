@@ -1,21 +1,20 @@
 # Palindrome Checker App
 
-## Use Case 1 – Application Entry & Welcome Message
+## Use Case 2 – Print a Hardcoded Palindrome Result
 
 ### Objective
-Implement the startup behavior of the Palindrome Checker application.  
-This use case focuses on initializing the application and displaying basic application information.
+Enhance the application to check whether a predefined string is a palindrome and display the result on the console.
 
-### Features Implemented
-- Application entry point using the `main()` method.
-- Display of application name.
-- Display of application version.
-- Welcome message shown when the application starts.
+### Changes from UC1
+- Added a hardcoded string (`"madam"`) to the program.
+- Implemented logic to reverse the string.
+- Added a conditional statement to compare the original string and the reversed string.
+- Displayed whether the string is a palindrome.
 
-### Key Java Concepts Used
+### Key Concepts Used
 
 #### 1. Class
-The `PalindromeCheckerApp` class acts as the main container for the program logic.
+The `PalindromeCheckerApp` class acts as the container for the entire application.
 
 #### 2. Main Method
 ```java
