@@ -6,34 +6,40 @@ public class PalindromeCheckerApp {
         System.out.println("        PALINDROME CHECKER APP        ");
         System.out.println("======================================");
 
-        String word = "madam";
+        // Hardcoded string with spaces and mixed case
+        String input = "A man a plan a canal Panama";
 
-        boolean result = isPalindrome(word, 0, word.length() - 1);
+        // Step 1: Normalize string
+        String normalized = input.toLowerCase().replaceAll("\\s+", "");
 
-        if (result) {
-            System.out.println("Result: " + word + " is a Palindrome.");
+        // Step 2: Two pointer comparison
+        int start = 0;
+        int end = normalized.length() - 1;
+
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (normalized.charAt(start) != normalized.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
+        }
+
+        // Display results
+        System.out.println("Original String  : " + input);
+        System.out.println("Normalized String: " + normalized);
+
+        if (isPalindrome) {
+            System.out.println("Result: The string is a Palindrome.");
         } else {
-            System.out.println("Result: " + word + " is NOT a Palindrome.");
+            System.out.println("Result: The string is NOT a Palindrome.");
         }
 
         System.out.println("--------------------------------------");
         System.out.println("Program completed.");
-    }
-
-    // Recursive palindrome check
-    public static boolean isPalindrome(String str, int start, int end) {
-
-        // Base condition
-        if (start >= end) {
-            return true;
-        }
-
-        // If characters don't match
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call
-        return isPalindrome(str, start + 1, end - 1);
     }
 }
