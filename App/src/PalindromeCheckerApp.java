@@ -1,31 +1,72 @@
-import java.util.Stack;
+import java.util.*;
 
-// Service class that handles palindrome logic
-class PalindromeChecker {
+// Strategy Interface
+interface PalindromeStrategy {
+    boolean checkPalindrome(String word);
+}
 
-    // Method to check palindrome using a stack
+// Stack-based strategy
+class StackStrategy implements PalindromeStrategy {
+
     public boolean checkPalindrome(String word) {
 
         Stack<Character> stack = new Stack<>();
 
-        // Push characters into stack
         for (int i = 0; i < word.length(); i++) {
             stack.push(word.charAt(i));
         }
 
-        // Build reversed string
         String reversed = "";
 
         while (!stack.isEmpty()) {
-            reversed = reversed + stack.pop();
+            reversed += stack.pop();
         }
 
-        // Compare original and reversed
         return word.equals(reversed);
     }
 }
 
-// Main application class
+// Deque-based strategy
+class DequeStrategy implements PalindromeStrategy {
+
+    public boolean checkPalindrome(String word) {
+
+        Deque<Character> deque = new ArrayDeque<>();
+
+        for (char c : word.toCharArray()) {
+            deque.addLast(c);
+        }
+
+        while (deque.size() > 1) {
+
+            char front = deque.removeFirst();
+            char rear = deque.removeLast();
+
+            if (front != rear) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+// Context class
+class PalindromeChecker {
+
+    private PalindromeStrategy strategy;
+
+    // Inject strategy
+    public PalindromeChecker(PalindromeStrategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public boolean checkPalindrome(String word) {
+        return strategy.checkPalindrome(word);
+    }
+}
+
+// Main Application
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
@@ -36,10 +77,12 @@ public class PalindromeCheckerApp {
 
         String word = "madam";
 
-        // Create service object
-        PalindromeChecker checker = new PalindromeChecker();
+        // Choose strategy dynamically
+        PalindromeStrategy strategy = new StackStrategy();
+        // PalindromeStrategy strategy = new DequeStrategy();
 
-        // Call service method
+        PalindromeChecker checker = new PalindromeChecker(strategy);
+
         boolean result = checker.checkPalindrome(word);
 
         if (result) {

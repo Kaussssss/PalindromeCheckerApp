@@ -1,78 +1,92 @@
 # Palindrome Checker App
 
-## Use Case 11 – Object-Oriented Palindrome Service
+## Use Case 12 – Strategy Pattern for Palindrome Algorithms
 
 ### Objective
-Refactor the palindrome checker using **Object-Oriented Programming (OOP)** principles by separating the palindrome logic into a dedicated service class.
+
+Implement the **Strategy Design Pattern** to allow the palindrome algorithm to be selected dynamically at runtime.
+
+This design enables the application to switch between different palindrome checking algorithms without modifying the core application logic.
 
 ---
 
-## Changes from UC10
+## Changes from UC11
 
-Previous approach:
-- All logic was implemented inside the `main()` method.
+Previous version (UC11):
 
-New approach (UC11):
-- Introduced a **PalindromeChecker service class**
-- Palindrome logic moved to a method `checkPalindrome()`
-- Main class now focuses only on application flow
+- Introduced object-oriented design
+- Palindrome logic encapsulated in a service class
 
-This improves **code modularity and maintainability**.
+New version (UC12):
 
----
-
-## Key OOP Concepts Used
-
-### Encapsulation
-
-The palindrome checking logic is encapsulated inside the class:
-class PalindromeChecker
-
-The logic is hidden from the main program and accessed through a method.
+- Introduced **Strategy Pattern**
+- Multiple palindrome algorithms implemented as strategies
+- Algorithm selection happens at runtime
 
 ---
 
-### Single Responsibility Principle
-
-Each class now has a single responsibility:
-q
-PalindromeCheckerApp → application execution
-PalindromeChecker → palindrome validation logic
+## Architecture
 
 
-This separation improves code structure.
+PalindromeStrategy (Interface)
+|
+|---- StackStrategy
+|
+|---- DequeStrategy
+|
+PalindromeChecker (Context)
+|
+PalindromeCheckerApp (Main Program)
+
 
 ---
 
-### Method Exposure
+## Key Concepts Used
 
-The service exposes a public method:
+### Interface
+
+Defines the contract for all palindrome strategies.
 
 ```java
-public boolean checkPalindrome(String word)
+interface PalindromeStrategy {
+    boolean checkPalindrome(String word);
+}
 
-The main program calls this method to check whether the string is a palindrome.
+Any class implementing this interface must provide its own palindrome algorithm.
 
-Data Structure Used
+Polymorphism
 
-The palindrome logic internally uses a Stack to reverse characters.
+Different strategies implement the same method:
 
-Example flow:
+StackStrategy.checkPalindrome()
+DequeStrategy.checkPalindrome()
 
-Push: m a d a m
-Pop : m a d a m
+The program can use any strategy interchangeably.
 
-Because stack follows LIFO (Last In First Out), it naturally reverses the string.
+Strategy Pattern
 
-Time Complexity
-O(n)
+The Strategy Pattern allows selecting an algorithm at runtime.
 
-Each character is processed once.
+Example:
 
-Space Complexity
-O(n)
+PalindromeStrategy strategy = new StackStrategy();
 
-The stack stores all characters.
+or
+
+PalindromeStrategy strategy = new DequeStrategy();
+
+The PalindromeChecker class executes the chosen algorithm.
+
+Data Structures Used
+
+Different strategies may use different data structures.
+
+Example:
+
+StackStrategy → Stack
+DequeStrategy → Deque
+
+This makes the design flexible and extendable.
 
 Example Output
 ======================================
