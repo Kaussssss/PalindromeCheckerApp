@@ -1,32 +1,35 @@
 # Palindrome Checker App
 
-## Use Case 5 – Stack Based Palindrome Checker
+## Use Case 7 – Deque Based Optimized Palindrome Checker
 
 ### Objective
-Implement palindrome validation using a **Stack data structure**.  
-The stack automatically reverses the order of elements due to its **Last In First Out (LIFO)** behavior.
+Implement palindrome validation using a **Deque (Double Ended Queue)** to compare characters from the front and rear efficiently.
 
 ---
 
-## Changes from UC4
+## Changes from UC5
 
-Previous approach (UC4):
-- Used a character array
-- Used two pointers to compare characters
+Previous approach (UC5):
+- Used a **Stack**
+- Required pushing and popping elements to reverse the string
 
-New approach (UC5):
-- Introduces **Stack data structure**
-- Characters are **pushed into the stack**
-- Characters are **popped to generate the reversed string**
-- Original and reversed strings are compared
+New approach (UC7):
+- Uses a **Deque**
+- Allows removing elements from both ends
+- Directly compares **first and last characters**
+- No explicit string reversal required
 
-This demonstrates how stacks can naturally reverse sequences.
+This makes the algorithm cleaner and reduces unnecessary operations.
 
 ---
 
 ## Key Concepts Used
 
-### Stack
-A **linear data structure** that follows the **LIFO principle**.
+### Deque (Double Ended Queue)
 
-Example:
+A **Deque** allows insertion and deletion from **both front and rear**.
+
+Implementation used:
+
+```java
+Deque<Character> deque = new ArrayDeque<>();
