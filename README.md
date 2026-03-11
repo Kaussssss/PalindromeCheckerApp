@@ -1,38 +1,87 @@
 # Palindrome Checker App
 
-## Use Case 10 – Case-Insensitive & Space-Ignored Palindrome
+## Use Case 11 – Object-Oriented Palindrome Service
 
 ### Objective
-Enhance the palindrome checker to ignore **letter case** and **spaces** during validation.
-
-This ensures that phrases like:
-"A man a plan a canal Panama"
-
-are correctly identified as palindromes.
+Refactor the palindrome checker using **Object-Oriented Programming (OOP)** principles by separating the palindrome logic into a dedicated service class.
 
 ---
 
-## Changes from UC9
+## Changes from UC10
 
-Previous approach (UC9):
-- Used recursion
-- Compared characters directly
+Previous approach:
+- All logic was implemented inside the `main()` method.
 
-New approach (UC10):
-- Introduces **string preprocessing**
-- Converts all characters to **lowercase**
-- Removes **spaces using regular expressions**
-- Performs palindrome validation on the cleaned string
+New approach (UC11):
+- Introduced a **PalindromeChecker service class**
+- Palindrome logic moved to a method `checkPalindrome()`
+- Main class now focuses only on application flow
+
+This improves **code modularity and maintainability**.
 
 ---
 
-## Key Concepts Used
+## Key OOP Concepts Used
 
-### String Preprocessing
+### Encapsulation
 
-The string is normalized before comparison.
+The palindrome checking logic is encapsulated inside the class:
+class PalindromeChecker
 
-Example:
+The logic is hidden from the main program and accessed through a method.
+
+---
+
+### Single Responsibility Principle
+
+Each class now has a single responsibility:
+q
+PalindromeCheckerApp → application execution
+PalindromeChecker → palindrome validation logic
+
+
+This separation improves code structure.
+
+---
+
+### Method Exposure
+
+The service exposes a public method:
 
 ```java
-String normalized = input.toLowerCase().replaceAll("\\s+", "");
+public boolean checkPalindrome(String word)
+
+The main program calls this method to check whether the string is a palindrome.
+
+Data Structure Used
+
+The palindrome logic internally uses a Stack to reverse characters.
+
+Example flow:
+
+Push: m a d a m
+Pop : m a d a m
+
+Because stack follows LIFO (Last In First Out), it naturally reverses the string.
+
+Time Complexity
+O(n)
+
+Each character is processed once.
+
+Space Complexity
+O(n)
+
+The stack stores all characters.
+
+Example Output
+======================================
+        PALINDROME CHECKER APP
+======================================
+Result: madam is a Palindrome.
+--------------------------------------
+Program completed.
+Compilation
+javac PalindromeCheckerApp.java
+Execution
+java PalindromeCheckerApp
